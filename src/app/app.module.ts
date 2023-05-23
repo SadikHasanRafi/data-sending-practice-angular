@@ -5,12 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChildComponent } from './child/child.component';
 import { ParentComponent } from './parent/parent.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { RoomComponent } from './room/room.component';
+import { RoomsComponent } from './rooms/rooms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChildComponent,
-    ParentComponent
+    ParentComponent,
+    NavbarComponent,
+    FooterComponent,
+    RoomComponent,
+    RoomsComponent
   ],
   imports: [
     BrowserModule,

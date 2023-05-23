@@ -1,18 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
-  styleUrls: ['./child.component.scss']
+  styleUrls: ['./child.component.css']
 })
 export class ChildComponent {
 
-  @Input() messageFromParents:any;
-  @Output() messageFromChilds = new EventEmitter<string>()
-
-
-  sendMessage():void{
-    const data = "A request from children"
-    this.messageFromChilds.emit(data)
-  }
 }

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'data-passing-practice-2'`, () => {
+  it(`should have as title 'router-practicce'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('data-passing-practice-2');
+    expect(app.title).toEqual('router-practicce');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('data-passing-practice-2 app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('router-practicce app is running!');
   });
 });
