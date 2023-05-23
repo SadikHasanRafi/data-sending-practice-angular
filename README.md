@@ -5,3 +5,4 @@
 3.  If you want to declear interface, decorator, class in the same file then you have to declear the interface first and then you have to call the decorator and then the class. 
 4.  In typescript there is a default constructor in there so it's not needed to declear a constructor here. 
 5.  A constructor is needed when an instance of class is decleared.
+6.  `**@Input**` and `**@Output**` decorators are used in the component who will get the data 
