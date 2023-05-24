@@ -8,12 +8,14 @@
 7.   `@Input` decorator is used to get data from parent to child. For that first we need to bind data in child component like this
  ![image](https://github.com/SadikHasanRafi/data-sending-practice-angular/assets/75904310/39d1bc6a-1dfe-4eca-9137-0f80e1c79e0a)
 then in child component we have to recive the data that is send from parent like this 
-```
-@Input() dataThatIsSendFromParentWillBeNowInThisVariable: hereTheDataTypeOfSendData; 
-//here it is good to use unknown instead of any as data type if the data type is unpredictable🥴.
-```
+  ```
+  @Input() dataThatIsSendFromParentWillBeNowInThisVariable: hereTheDataTypeOfSendData; 
+  //here it is good to use unknown instead of any as data type if the data type is unpredictable🥴.
+  ```
 8. In Angular, square brackets `[]` are used for property binding, and parentheses `()` are used for event binding.
-9. **Data passing from child to parent `@Output` decorator's use**
+9. In Angular, the template can only access properties and methods defined within the component class. This means that variables declared within lifecycle hooks like ngOnInit are not directly accessible in the template.
+
+10. **Data passing from child to parent `@Output` decorator's use**
     - *Here we want to send data when and event will trigger. Suppose our children have room list where we gonna select a room and that room's data will be send to our parent component.* So here we create a button and when it will be click the data will go to the parent component. For that here we create an click event handler function with the button and in that function we will send the room data ( *which will ultimately go to the parent component* ) as a parameter room. Example:
       > `<button (click)="selectRoom(room)" >View</button></td>`
 
@@ -45,6 +47,8 @@ then in child component we have to recive the data that is send from parent like
         And here before using the data we have to assign the child's data to any variable that has global scope in that `parent.ts` file.
 
         ***Note:** All the mentioned functions should be called inside the class. Otherwise probably they won't work.* 🥴
+  
+  
 
 
 

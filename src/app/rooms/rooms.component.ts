@@ -29,15 +29,26 @@ export class RoomsComponent implements OnInit {
     { id: 7, name: "Conference Room C", capacity: 6, location: "Floor 2" },
   ];
   
-  selectedRoomInfo:unknown;
+  selectedRoomInfo:Room | undefined;
 
+  //child theke asa data ekhane ase
   selectedRoomparent = (room:any):void =>{
-      console.log(room)
       this.selectedRoomInfo = room
+       console.log(this.selectedRoomInfo)
   }
+  isDisabled:boolean=false
+
+  handleClearSelection = ():void => {
+    console.log("button clicked")
+      this.selectedRoomInfo = undefined
+  }
+
   
     ngOnInit(): void {
     console.log("from parents -> ",this.selectedRoomInfo)
+    if (this.selectedRoomInfo === undefined) {
+      this.isDisabled = true
+    }
   }
 }
 
