@@ -13,5 +13,6 @@ then in child component we have to recive the data that is send from parent like
 //here it is good to use unknown instead of any as data type if the data type is unpredictable🥴.
 ```
 8. In Angular, square brackets `[]` are used for property binding, and parentheses `()` are used for event binding.
+9. **Data passing from child to parent**
 
 
