@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./room.component.css']
 })
 
-@Input() room:string=""
-export class RoomComponent {
 
+export class RoomComponent {
+ @Input() room:any;
 }
