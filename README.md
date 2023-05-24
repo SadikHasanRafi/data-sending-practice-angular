@@ -1,4 +1,4 @@
-**Learning notes**
+# Learning notes
 1. Decoratos -> If these are associate with any function then it will be called first and this decorator can change or modify the function. It can be used with any object, parameter, class etc. They are written as `@Decorator`. There are many types of build in decorator in angular. Custom decorator is also possible. 
 2. Directives are used to modify the html tags. They are written in angular's html file or html template. Custom directives are also possible. [Learn more](https://angular.io/guide/built-in-directives)
 3.  If you want to declear interface, decorator, class in the same file then you have to declear the interface first and then you have to call the decorator and then the class. 
@@ -13,6 +13,39 @@ then in child component we have to recive the data that is send from parent like
 //here it is good to use unknown instead of any as data type if the data type is unpredictable🥴.
 ```
 8. In Angular, square brackets `[]` are used for property binding, and parentheses `()` are used for event binding.
-9. **Data passing from child to parent**
+9. **Data passing from child to parent `@Output` decorator's use**
+    - *Here we want to send data when and event will trigger. Suppose our children have room list where we gonna select a room and that room's data will be send to our parent component.* So here we create a button and when it will be click the data will go to the parent component. For that here we create an click event handler function with the button and in that function we will send the room data ( *which will ultimately go to the parent component* ) as a parameter room. Example:
+      > `<button (click)="selectRoom(room)" >View</button></td>`
+
+    - In **child.ts** file create a `@Output` decorator which will pass the data from child to parent. Example:
+      > `@Output() ky = new EventEmitter<any>();`
+
+      Here `ky` is used to take out the event or data from the child to parent. Here is an property  of event which can be use as `ky` is an instance of `EventEmitter()` called `emit` and this emit will take the data out from child and bring it to the parent. Here `<and>` is the data type of the data we want to send from the child to parent.
+    - Now the parameter of first step need to pass inside that second step's emit function inside first step's function `selectRoom()` body. Example:  
+        >```
+        >selectRoom = (room:unknown):void =>{
+        >   this.ky.emit(room)
+        >}
+        >```
+        Here `<unknown>` is parameter's data type and `void` is function's return type. And thus in this `child.ts` file our `@Output` configuration is done.
+    - Now we have to work on `parent.html` file. Here we have to wrap the the event. Example:
+        >`<app-room (ky)="selectedRoomparent($event)" ></app-room>`
+
+        ![](https://angular.io/generated/images/guide/inputs-outputs/input-output-diagram.svg)
+        Here the parameter where the room data is present needs to call as `$event` *parameter* inside the `selectedRoomparent` function.
+    - Now In `parent.ts` file we we have to write the body of `selectedRoomparent()` function which was bind in `parent.html` file's children component tag.Example:
+     
+        >```
+        > selectedRoomparent = (room:any):void =>{
+        >   console.log(room)
+        >   this.selectedRoomInfo = room
+        >}
+        >```
+        Now here in the room variable the data selected from child component is present.        
+        And here before using the data we have to assign the child's data to any variable that has global scope in that `parent.ts` file.
+
+        ***Note:** All the mentioned functions should be called inside the class. Otherwise probably they won't work.* 🥴
+
+
 
 
