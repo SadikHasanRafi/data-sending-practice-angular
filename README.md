@@ -5,10 +5,13 @@
 4.  In typescript there is a default constructor in there so it's not needed to declear a constructor here. 
 5.  A constructor is needed when an instance of class is decleared.
 6.  `@Input` and `@Output` decorators are used in the component who will get the data.
-7.  `@Input` decorator is used to get data from parent to child. For that first we need to bind data in child component like this
+7.   `@Input` decorator is used to get data from parent to child. For that first we need to bind data in child component like this
  ![image](https://github.com/SadikHasanRafi/data-sending-practice-angular/assets/75904310/39d1bc6a-1dfe-4eca-9137-0f80e1c79e0a)
 then in child component we have to recive the data that is send from parent like this 
 ```
 @Input() dataThatIsSendFromParentWillBeNowInThisVariable: hereTheDataTypeOfSendData; 
 //here it is good to use unknown instead of any as data type if the data type is unpredictable🥴.
 ```
+8. In Angular, square brackets `[]` are used for property binding, and parentheses `()` are used for event binding.
+
+
