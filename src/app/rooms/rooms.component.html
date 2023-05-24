@@ -1,3 +1,7 @@
-<p>rooms   works!</p>
+<p>Select a room</p>
 
-<app-room [room]="roomList" ></app-room>
+
+<app-room *ngFor="let r of roomList" [room]="r"  
+            (ky)="selectedRoomparent($event)"
+></app-room>
+
