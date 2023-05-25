@@ -34,7 +34,7 @@ then in child component we have to recive the data that is send from parent like
     - Now we have to work on `parent.html` file. Here we have to wrap the the event. Example:
         >`<app-room (ky)="selectedRoomparent($event)" ></app-room>`
 
-        ![](https://angular.io/generated/images/guide/inputs-outputs/input-output-diagram.svg)
+        ![](https://camo.githubusercontent.com/a10e8793b070012ed403e9b06c65a0bb3d197207ea97803eb73a1886930efb19/68747470733a2f2f616e67756c61722e696f2f67656e6572617465642f696d616765732f67756964652f696e707574732d6f7574707574732f696e7075742d6f75747075742d6469616772616d2e737667)
         Here the parameter where the room data is present needs to call as `$event` *parameter* inside the `selectedRoomparent` function.
     - Now In `parent.ts` file we we have to write the body of `selectedRoomparent()` function which was bind in `parent.html` file's children component tag.Example:
      
