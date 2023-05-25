@@ -1,1 +1,46 @@
-<p>child works!</p>
+<h1 class="text-3xl">Child</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  Heads up! 👋
+
+  Plugins:
+    - @tailwindcss/forms
+-->
+
+<div class="grid grid-cols-2">
+    <div>
+        <label for="UserEmail" class="block text-xs font-medium text-gray-700">
+            Type here
+          </label>
+        <input type="text" name="" id=""  
+        [(ngModel)]="childTask"
+        placeholder="type here"  class="mt-3 py-3 p-1 w-1/4   border-yellow-900 shadow-xl border sm:text-sm">   
+        
+        
+        <button
+          class="inline-block  border border-indigo-600 px-4 py-3 text-sm w-auto font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500"
+        >
+          Change
+        </button>
+    </div>
+    <div>
+        <p class="block" *ngIf="showTask">{{tasks}}</p>
+        <p class="block" >{{childTask}}</p>
+    </div>
+</div>

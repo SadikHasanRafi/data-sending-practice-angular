@@ -12,7 +12,8 @@ then in child component we have to recive the data that is send from parent like
   @Input() dataThatIsSendFromParentWillBeNowInThisVariable: hereTheDataTypeOfSendData; 
   //here it is good to use unknown instead of any as data type if the data type is unpredictable🥴.
   ```
-8. In Angular, square brackets `[]` are used for property binding, and parentheses `()` are used for event binding.
+  
+8. In Angular, square brackets `[]` are used for property binding, and parentheses `()` are used for event binding. 
 9. In Angular, the template can only access properties and methods defined within the component class. This means that variables declared within lifecycle hooks like ngOnInit are not directly accessible in the template.
 
 10. **Data passing from child to parent `@Output` decorator's use**
@@ -47,6 +48,13 @@ then in child component we have to recive the data that is send from parent like
         And here before using the data we have to assign the child's data to any variable that has global scope in that `parent.ts` file.
 
         ***Note:** All the mentioned functions should be called inside the class. Otherwise probably they won't work.* 🥴
+      
+   11. `ngOnChanges` is used to detected if there is any type of changes happened in the input data that children have or in the component. If the `@Input` decorator detect any change then it will check the changes and it will updated the changes and re-render that specific part of the component.
+
+        *Note: Here to use this ngOnChanges hook we need to use or have the `@Input` decorator.*
+   14. sd
+   12. mew
+   13. mew
   
   
 
