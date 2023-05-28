@@ -52,8 +52,24 @@ then in child component we have to recive the data that is send from parent like
    11. `ngOnChanges` is used to detected if there is any type of changes happened in the input data that children have or in the component. If the `@Input` decorator detect any change then it will check the changes and it will updated the changes and re-render that specific part of the component.
 
         *Note: Here to use this ngOnChanges hook we need to use or have the `@Input` decorator.*
-   14. sd
-   12. mew
+   14. The code is
+    
+        ` @ViewChild(NavbarComponent) navbarCoponent : NavbarComponent;`
+        
+
+        In this code the error will be ***Property 'navbarCoponent' has no initializer and is not definitely assigned in the constructor.ts(2564).***  
+
+        To avoid this error we need to use `!:` this operator and this operator will tell the editor that the `navbarComponent` will be initialize in compile time. The solve of the code is 
+          
+        ` @ViewChild(NavbarComponent) navbarCoponent !: NavbarComponent;`
+      
+        **To make @ViewChild useful first we have to pass the component inside the this decorator and then we have to make an instance of this decorator and then we have to use that instance and here in the example the navbarComponent is that instance.**
+
+
+   14. `AfterViewInit` is used to view child's properties without `@Input` and `@Output` decorators. After implementing `AfterViewInit` class we will able to access the `ngAfterViewInit()` method which is used to find the `@ViewChild(x)` components which is for example x here, we will scope the x component's properties. We can access then in only `ngAfterViewInit()` scope. Not any where else in the class.
+   12. According previous step we unable to scope the ngInit method of that grabbed component's property but we can do that by sending a parameter of `{static:true}`. Here is the example
+   
+       `@ViewChild(RoomComponent,{static:true}) roomComponent !: RoomComponent;`
    13. mew
   
   

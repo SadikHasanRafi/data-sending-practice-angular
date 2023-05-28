@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { RoomComponent } from '../room/room.component';
 
 interface Room {
   id: number;
@@ -17,7 +18,9 @@ interface Room {
   styleUrls: ['./rooms.component.css']
 })
 
-export class RoomsComponent implements OnInit {
+export class RoomsComponent implements OnInit,AfterViewInit {
+
+  @ViewChild(RoomComponent,{static:true}) roomComponent !: RoomComponent;
 
   roomList:Room[] = [
     { id: 1, name: "Conference Room A", capacity: 10, location: "Floor 1" },
@@ -49,6 +52,10 @@ export class RoomsComponent implements OnInit {
     if (this.selectedRoomInfo === undefined) {
       this.isDisabled = true
     }
+  }
+
+  ngAfterViewInit(): void {
+    // console.log(this.roomComponent.cat)
   }
 }
 
