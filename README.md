@@ -70,7 +70,61 @@ then in child component we have to recive the data that is send from parent like
    12. According previous step we unable to scope the ngInit method of that grabbed component's property but we can do that by sending a parameter of `{static:true}`. Here is the example
    
        `@ViewChild(RoomComponent,{static:true}) roomComponent !: RoomComponent;`
-   13. mew
+   13. `<ng-template></ng-temple>` is a tag from angular where we can set a tag. And using that tag as reference we can load component inside that tag. There is the how we do that ➡
+        
+        Here in html file or temple ➡
+
+        `
+          <ng-template #user ></ng-template>
+        `
+        
+        Now in ts file ➡
+        
+          ```
+          import { Component, AfterViewInit, ViewChild, ViewContainerRef } from '@angular/core';
+          import { ChildComponent } from './child/child.component';
+
+        @Component({
+            selector: 'app-root',
+            templateUrl: './app.component.html',
+            styleUrls: ['./app.component.css']
+        })
+        export class AppComponent implements AfterViewInit {
+        title = 'router-practicce';
+
+        @ViewChild('user',{read:ViewContainerRef}) vcr !: ViewContainerRef;
+
+        ngAfterViewInit(): void {
+              const componentRef = this.vcr.createComponent(ChildComponent)
+            }
+        }
+          ``` 
+   16. Here in '15' we can modify or manipulate properties of child component like ➡
+   
+         `componentRef.instance.childTask = '123asda'`
+   16. Data binding works with properties of DOM elements (like in button `disabled` is DOM elements), components, and directives, not HTML attributes. 
+   16. Interpolation is providing data into html by using double bracket from `ts` file. 
+   16. There are three types of data binding. They are
+
+        `[target]="expression"` , here it is one way data binding which is from data source to view target. Here expression is in the `component.ts` file and the target will is the html attribute. **Example:** `<img [src]="imagePath" alt="Image">`. In this case, "src" is the target, and "imagePath" is the expression. The "imagePath" variable in the component's TypeScript code holds the path to an image, and it will be bound to the "src" attribute of the <img> element, dynamically updating the image displayed.
+
+        `(target)="statement"`, here it is also one way from view target and to data source. Here **view** means the html template in angular and source is the `component.ts` file.
+
+        - Use [] to bind from source to view
+        - Use () to bind from view to source
+        - Use [()] to bind in a two-way sequence of view to source to view
+
+        `<button type="button" (click)="onSave()">Save</button>` here it is bind the event.
+
+
+
+
+   16. `<button type="button" [style.color]="isSpecial ? 'red' : 'green'">Tap</button>` , here if the `isSpecial` is *true* in `component.ts` file then it will be red otherwise it will be green.
+
+   16. 
+
+  
+
   
   
 

@@ -1,14 +1,28 @@
-import { AppComponent } from './app.component';
-import { NgModule, Component } from '@angular/core';
+import { Page1Component } from './page1/page1.component';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ParentComponent } from './parent/parent.component';
-import { ChildComponent } from './child/child.component';
-import { RoomsComponent } from './rooms/rooms.component';
+import { AppComponent } from './app.component';
+import { Page2Component } from './page2/page2.component';
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: 'parent', component: ParentComponent },
-  { path: 'children', component: ChildComponent },
-  { path: '', component: RoomsComponent },
+  {
+    path:"",
+    component:HomeComponent
+  },
+  {
+    path:'page1',
+    component:Page1Component
+  },
+  {
+    path:'page2',
+    component:Page2Component
+  },
+  {
+    path:'**',
+    component:PageNotFoundComponent
+  }
 ];
 
 @NgModule({
