@@ -1,0 +1,8 @@
+<p>page1 works!</p>
+<input placeholder="Enter whatever you want" class="mt-1  w-1/4 shadow-2xl border-black border-2 sm:text-sm" [(ngModel)]="name">
+<p>You are writing 👀 {{name}}</p>
+
+
+<input #ref1 type="text" [(ngModel)]="firstExample" />
+<span *ngIf="true">Value: {{ ref1.value }}</span>
+

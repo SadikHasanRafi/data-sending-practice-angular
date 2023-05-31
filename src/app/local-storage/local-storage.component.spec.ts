@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RoomComponent } from './room.component';
+import { LocalStorageComponent } from './local-storage.component';
 
-describe('RoomComponent', () => {
-  let component: RoomComponent;
-  let fixture: ComponentFixture<RoomComponent>;
+describe('LocalStorageComponent', () => {
+  let component: LocalStorageComponent;
+  let fixture: ComponentFixture<LocalStorageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RoomComponent ]
+      declarations: [ LocalStorageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RoomComponent);
+    fixture = TestBed.createComponent(LocalStorageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

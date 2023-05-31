@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "router-practicce": {
+    "angular-by-own": {
       "projectType": "application",
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "ngByOwn",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/router-practicce",
+            "outputPath": "dist/angular-by-own",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "router-practicce:build:production"
+              "browserTarget": "angular-by-own:build:production"
             },
             "development": {
-              "browserTarget": "router-practicce:build:development"
+              "browserTarget": "angular-by-own:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "router-practicce:build"
+            "browserTarget": "angular-by-own:build"
           }
         },
         "test": {
@@ -96,6 +96,6 @@
     }
   },
   "cli": {
-    "analytics": "6af78165-a9b4-456c-aaa7-4dad4f721826"
+    "analytics": "16b10d14-5036-41cf-9a3b-1f548d82c2b0"
   }
 }
