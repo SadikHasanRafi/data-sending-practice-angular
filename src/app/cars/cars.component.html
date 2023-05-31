@@ -1,4 +1,4 @@
-<p>cars works!</p>
-<ul *ngFor="let fuel of this.fuels">
-    <li>Car fuel types are {{fuel}}</li>
+<p>cars works! </p>
+<ul *ngFor="let fuel of this.fuels; let i= index">
+    <li>{{ i+1 }}. Car fuel types is {{fuel}}</li>
 </ul>

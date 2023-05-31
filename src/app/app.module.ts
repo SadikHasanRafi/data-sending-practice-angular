@@ -13,6 +13,8 @@ import { ContainerComponent } from './container/container.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarsComponent } from './cars/cars.component';
 import { FuelTypeService } from './cars/Service/fuel-type.service';
+import { PostsComponent } from './posts/posts.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,14 @@ import { FuelTypeService } from './cars/Service/fuel-type.service';
     RoomComponent,
     RoomsComponent,
     ContainerComponent,
-    CarsComponent
+    CarsComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [FuelTypeService],
   bootstrap: [AppComponent]

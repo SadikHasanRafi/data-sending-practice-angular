@@ -5,12 +5,14 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { CarsComponent } from './cars/cars.component';
+import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
   { path: 'parent', component: ParentComponent },
   { path: 'children', component: ChildComponent },
   { path: '', component: RoomsComponent },
   { path: 'cars', component: CarsComponent },
+  { path: 'posts', component: PostsComponent }
 ];
 
 @NgModule({

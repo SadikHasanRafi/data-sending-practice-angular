@@ -6,5 +6,5 @@ import { Injectable } from '@angular/core';
 export class FuelTypeService {
 
   constructor() { }
-  fuelType:string[]=["diesel","octan","battery","blood"]
+  fuelType:string[]=["diesel🛢","octan⛽","battery🔋","blood🩸"]
 }
