@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { RoomComponent } from '../room/room.component';
+import { RoomListService } from './room-list.service';
 
 interface Room {
   id: number;
@@ -22,15 +23,7 @@ export class RoomsComponent implements OnInit,AfterViewInit {
 
   @ViewChild(RoomComponent,{static:true}) roomComponent !: RoomComponent;
 
-  roomList:Room[] = [
-    { id: 1, name: "Conference Room A", capacity: 10, location: "Floor 1" },
-    { id: 2, name: "Conference Room B", capacity: 8, location: "Floor 2" },
-    { id: 3, name: "Meeting Room X", capacity: 6, location: "Floor 3" },
-    { id: 4, name: "Board Room 1", capacity: 12, location: "Floor 4" },
-    { id: 5, name: "Training Room A", capacity: 20, location: "Floor 1" },
-    { id: 6, name: "Breakout Room 1", capacity: 4, location: "Floor 3" },
-    { id: 7, name: "Conference Room C", capacity: 6, location: "Floor 2" },
-  ];
+  roomList:Room[] = [];
   
   selectedRoomInfo:Room | undefined;
 
@@ -46,13 +39,21 @@ export class RoomsComponent implements OnInit,AfterViewInit {
       this.selectedRoomInfo = undefined
   }
 
-  
-    ngOnInit(): void {
-    console.log("from parents -> ",this.selectedRoomInfo)
-    if (this.selectedRoomInfo === undefined) {
-      this.isDisabled = true
-    }
+  constructor(private roomListService : RoomListService ){
+
   }
+  
+  ngOnInit() {
+    this.roomList = this.roomListService.roomList;
+    this.roomListService.getHotelRoaomInfos();
+  }
+  
+  //   ngOnInit(): void {
+  //   console.log("from parents -> ",this.selectedRoomInfo)
+  //   if (this.selectedRoomInfo === undefined) {
+  //     this.isDisabled = true
+  //   }
+  // }
 
   ngAfterViewInit(): void {
     // console.log(this.roomComponent.cat)

@@ -11,6 +11,8 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { FormsModule } from '@angular/forms';
 import { ContainerComponent } from './container/container.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CarComponent } from './car/car.component';
+import { FuelTypeService } from './car/Service/fuel-type.service';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,15 @@ import { NavbarComponent } from './navbar/navbar.component';
     FooterComponent,
     RoomComponent,
     RoomsComponent,
-    ContainerComponent
+    ContainerComponent,
+    CarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [FuelTypeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

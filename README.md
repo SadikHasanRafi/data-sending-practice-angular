@@ -70,10 +70,58 @@ then in child component we have to recive the data that is send from parent like
    12. According previous step we unable to scope the ngInit method of that grabbed component's property but we can do that by sending a parameter of `{static:true}`. Here is the example
    
        `@ViewChild(RoomComponent,{static:true}) roomComponent !: RoomComponent;`
-   13. mew
-  
-  
+   13. `<ng-template></ng-temple>` is a tag from angular where we can set a tag. And using that tag as reference we can load component inside that tag. There is the how we do that ➡
+        
+        Here in html file or temple ➡
+
+        `
+          <ng-template #user ></ng-template>
+        `
+        
+        Now in ts file ➡
+        
+          ```
+          import { Component, AfterViewInit, ViewChild, ViewContainerRef } from '@angular/core';
+          import { ChildComponent } from './child/child.component';
+
+        @Component({
+            selector: 'app-root',
+            templateUrl: './app.component.html',
+            styleUrls: ['./app.component.css']
+        })
+        export class AppComponent implements AfterViewInit {
+        title = 'router-practicce';
+
+        @ViewChild('user',{read:ViewContainerRef}) vcr !: ViewContainerRef;
+
+        ngAfterViewInit(): void {
+              const componentRef = this.vcr.createComponent(ChildComponent)
+            }
+        }
+          ``` 
+   16. Here in '15' we can modify or manipulate properties of child component like ➡
+   
+         `componentRef.instance.childTask = '123asda'`
+   16. **Dependency Injection** or DI calculate business logics and then provide data to the view elements.Implementation steps given below
+
+       - Firstly create a service (using `ng g s serviceName` command) where there will be necessary data. Now in the `service.ts` file there is an `@Injectable` where we have to define whether it is in *root* or *any*. Now inside class we can either write all logics and other stuffs in constructor or inside the class body and here this class is the main injectable.
+       - As the `service.ts` file is ready now move on to the `app.module.ts` file and there is a **provider** inside `@NgModule` and inside that provider array we have to pass our that `service.ts` file's class.
+       - Now we have to go where we want to inject our service. In that `serviceReceiver.ts` file we have to implement constructor and inside that constructor we have to pass a value as an argument. The syntax of that argument is 
 
 
+          `accessModifier nameOfThatServiceInstance : ServiceClassName`
 
+          Example: 
+          ``` 
+          constructor(private fuelType : FuelTypeService){
+            this.fuel = fuelType.getFuelTypes()
+            this.mew = fuelType.mew
+          }
+          ```
+          Here `FuelTypeService` is the class name of that `service.ts` file and we can access all the method and properties of that `service.ts` file through `fuelType` variable. But we have to assign this value into class's local property and then we can use the injected data, property and methods.
+   18. **Dependency Modifier** are four types and they are, `@Optional()`, `@Host()`, `@Self()` and `@SkipSelf()`. **These all will be written before the access modifier**.
 
+        - `@Optional()` : Some times there is nothing in the service and at that time we need to use this decorator so that even though that is null it does not throw any error. 
+        - `@Skip()` : To use this decorator we have define the service inside the `@Component()` decorator we have to use `provider:[serviceName]` like this. Here it will search the service only side that component, not in the root component to resolve that service.
+        - `@SkipSelf()` : To use this decorator we have define the service inside the `@Component()` decorator we have to use `provider:[serviceName]` like this. Here it will not search the service inside that component, but from the root component to resolve that service.
+        - `@Host()` : To use this decorator we have define the service inside the `@Component()` decorator we have to use `provider:[serviceName]` like this. Here it will not search after its level. It is restricted to not to search beyond that own component.
