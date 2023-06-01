@@ -145,6 +145,23 @@ then in child component we have to recive the data that is send from parent like
         - `@SkipSelf()` : To use this decorator we have define the service inside the `@Component()` decorator we have to use `provider:[serviceName]` like this. Here it will not search the service inside that component, but from the root component to resolve that service.
         - `@Host()` : To use this decorator we have define the service inside the `@Component()` decorator we have to use `provider:[serviceName]` like this. Here it will not search after its level. It is restricted to not to search beyond that own component. 
 
+  23. HTTP request procedures (get method) ➡ 
+      - Firstly in `app.module.ts` file we have import `HttpClientModule` and include it in import's array.
+
+      - Then suppose we want to show all products in `products.ts` file and here we gonna call that api and to do that we have to inject `HttpClient` from HttpClientModule in the constructor as private and make an alice (variable or instance) of `HttpClient`. Example
+
+        `constructor(private http_alice : HttpClient){}`
+
+      - Then `product.ts` file we have to call the api like this.
+
+        ```
+        this.http.get<any>(this.url).subscribe(data => {
+            this.posts = data
+            console.log(this.posts)
+        })   
+        ```
+        Here in the example in data we have our fetched data.
+
   
 
   

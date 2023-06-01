@@ -15,6 +15,10 @@ import { CarsComponent } from './cars/cars.component';
 import { FuelTypeService } from './cars/Service/fuel-type.service';
 import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RxJsCountryComponent } from './rx-js-country/rx-js-country.component';
+import { MorePracticesComponent } from './more-practices/more-practices.component';
+import { PostMethodComponent } from './post-method/post-method.component';
+import { PostDatabaseService } from './post-method/Service/post-database.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,10 @@ import { HttpClientModule } from '@angular/common/http';
     RoomsComponent,
     ContainerComponent,
     CarsComponent,
-    PostsComponent
+    PostsComponent,
+    RxJsCountryComponent,
+    MorePracticesComponent,
+    PostMethodComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [FuelTypeService],
+  providers: [FuelTypeService,PostDatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
