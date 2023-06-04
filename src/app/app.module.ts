@@ -19,6 +19,7 @@ import { RxJsCountryComponent } from './rx-js-country/rx-js-country.component';
 import { MorePracticesComponent } from './more-practices/more-practices.component';
 import { PostMethodComponent } from './post-method/post-method.component';
 import { PostDatabaseService } from './post-method/Service/post-database.service';
+import { ViewAllUsersComponent } from './view-all-users/view-all-users.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PostDatabaseService } from './post-method/Service/post-database.service
     PostsComponent,
     RxJsCountryComponent,
     MorePracticesComponent,
-    PostMethodComponent
+    PostMethodComponent,
+    ViewAllUsersComponent
   ],
   imports: [
     BrowserModule,

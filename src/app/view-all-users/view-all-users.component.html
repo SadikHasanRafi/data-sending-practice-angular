@@ -1,0 +1,72 @@
+<p>Number of user is : {{userIds.length}}</p>
+
+<!-- <ul  *ngFor="let user of users$ | async">
+    <p>{{user._id}}</p>
+</ul> -->
+
+
+
+
+
+
+
+<!-- 
+<ul >
+    <li *ngFor="let id of userIds">{{id}}</li>
+</ul> -->
+
+
+
+
+<!--
+  Heads up! 👋
+
+  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
+-->
+
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead class="ltr:text-left rtl:text-right">
+      <tr>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          _id
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Email
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Name
+        </th>
+        <th class="px-4 py-2"></th>
+      </tr>
+    </thead>
+
+    <tbody class="divide-y divide-gray-200">
+      <tr  *ngFor="let id of userIds" >
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          {{id._id}}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{id.email}}</td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{id.name || id.displayName}}</td>
+        <td class="whitespace-nowrap px-4 py-2">
+          <button
+            (click)="handleViewUser(id._id)"
+            class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
+          >
+            View User
+          </button>
+        </td>
+        <td class="whitespace-nowrap px-4 py-2">
+          <button
+            (click)="handleDeleteUser(id._id)"
+            class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-700"
+          >
+            Delete user
+          </button>
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>
