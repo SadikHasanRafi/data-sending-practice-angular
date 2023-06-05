@@ -22,10 +22,10 @@ export class ViewAllUsersComponent implements OnInit {
   ngOnInit(): void {
 
     // this.getData();
-    
+
     //  this.http.get("https://elegant-bd-jobs.onrender.com/users").pipe(
     //   map((data: any) => ({id: data._id}))).subscribe(console.log)
-    //   this.users$.pipe( 
+    //   this.users$.pipe(
     //     map((data:any[]) => {
     //       return data.map((id:any) => id._id)
     //     })
@@ -47,8 +47,8 @@ export class ViewAllUsersComponent implements OnInit {
             text:'User deleted successfully!',
             icon: 'success'
         })
-          
-          //deleted 
+
+          //deleted
         }else{
           Swal.fire({
             icon: 'error',
@@ -65,6 +65,49 @@ export class ViewAllUsersComponent implements OnInit {
 
     this.getData()
   }
+
+  handleOnTextChange($event: any, data: any, type: string) {
+    console.log('EVENT: ', $event.target.value, data);
+    const foundIndex = this.userIds.findIndex((user: any) => user._id === data._id);
+    if (foundIndex !== -1) {
+      if (type === 'email') {
+        this.userIds[foundIndex] = {...this.userIds[foundIndex], email: $event.target.value};
+      } else if (type === 'name') {
+        this.userIds[foundIndex] = {...this.userIds[foundIndex], name: $event.target.value};
+      }
+    }
+  }
+
+    handleUpdateUser(id:string, uid: string, data: any) {
+    console.log(id, data);
+    // return;
+    let res = this.http.put<any>(`https://elegant-bd-jobs.onrender.com/update-single-user/${uid}?id=${id}`, {
+      email: data.email,
+      name: data.name,
+    });
+    res.subscribe(
+      (next: any) => {
+        console.log(next.status);
+        if (next === true) {
+          Swal.fire({
+            title: '',
+            text:'User updated successfully!',
+            icon: 'success'
+          });
+          this.getData();
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!'
+          });
+        }
+
+      }
+    )
+  }
+
+
 
   handleViewUser(id:unknown){
     console.log(id)
