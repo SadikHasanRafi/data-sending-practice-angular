@@ -1,4 +1,4 @@
-<p>Number of user is : {{userIds.length}}</p>
+<p>Number of user is : {{userIds?.length || 0}}</p>
 
 <!-- <ul  *ngFor="let user of users$ | async">
     <p>{{user._id}}</p>
@@ -111,12 +111,13 @@
           <input style="width: 100%" type="text" value="{{id.name || id.displayName}}" (change)="handleOnTextChange($event, id, 'name')"/>
         </td>
         <td class="whitespace-nowrap px-4 py-2">
-          <button
+          <a
             (click)="handleViewUser(id._id)"
+            [routerLink]="['view-single-user',id._id]"
             class="inline-block rounded bg-indigo-600 px-4 py-2 text-xs font-medium text-white hover:bg-indigo-700"
-          >
+          > 
             View User
-          </button>
+        </a>
         </td>
         <td class="whitespace-nowrap px-4 py-2">
           <button
@@ -139,4 +140,6 @@
 
     </tbody>
   </table>
+<router-outlet></router-outlet>
+
 </div>

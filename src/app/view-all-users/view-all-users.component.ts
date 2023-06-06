@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import Swal from 'sweetalert2';
 // import {map} from 'rxjs/operators'
@@ -13,24 +14,24 @@ export class ViewAllUsersComponent implements OnInit {
 
 
 
-  users$: Observable<any> | undefined;
+  users$ !: Observable<any> ;
   userIds: any;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   ngOnInit(): void {
 
-    // this.getData();
+    this.getData();
 
-    //  this.http.get("https://elegant-bd-jobs.onrender.com/users").pipe(
-    //   map((data: any) => ({id: data._id}))).subscribe(console.log)
-    //   this.users$.pipe(
-    //     map((data:any[]) => {
-    //       return data.map((id:any) => id._id)
-    //     })
-    //   ).subscribe(console.log)
-    //   // this.userIds.subscribe((id:any) => console.log(id))
+     this.http.get("https://elegant-bd-jobs.onrender.com/users").pipe(
+      map((data: any) => ({id: data._id}))).subscribe(console.log)
+      this.users$.pipe(
+        map((data:any[]) => {
+          return data.map((id:any) => id._id)
+        })
+      ).subscribe(console.log)
+      // this.userIds.subscribe((id:any) => console.log(id))
     this.getData()
 
   }
@@ -111,13 +112,16 @@ export class ViewAllUsersComponent implements OnInit {
 
   handleViewUser(id:unknown){
     console.log(id)
+    // this.router.navigate(['../view-single-user',id]);
+
+    this.router.navigate(['/more/view-all-users/view-single-user', id]);
+
     // `https://elegant-bd-jobs.onrender.com/get-single-user?email=${email}`
   }
 
   getData(){
     // this.users$ = this.http.get("https://elegant-bd-jobs.onrender.com/users");
-
-
+   
     this.users$ = this.http.get("https://elegant-bd-jobs.onrender.com/users");
     this.users$.pipe(
       map((data: any[]) => data.map((user: any) => user))

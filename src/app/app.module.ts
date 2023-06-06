@@ -20,6 +20,8 @@ import { MorePracticesComponent } from './more-practices/more-practices.componen
 import { PostMethodComponent } from './post-method/post-method.component';
 import { PostDatabaseService } from './post-method/Service/post-database.service';
 import { ViewAllUsersComponent } from './view-all-users/view-all-users.component';
+import { ViewSingleUserComponent } from './view-all-users/view-single-user/view-single-user.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -36,13 +38,15 @@ import { ViewAllUsersComponent } from './view-all-users/view-all-users.component
     RxJsCountryComponent,
     MorePracticesComponent,
     PostMethodComponent,
-    ViewAllUsersComponent
+    ViewAllUsersComponent,
+    ViewSingleUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [FuelTypeService,PostDatabaseService],
   bootstrap: [AppComponent]
