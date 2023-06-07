@@ -1,0 +1,122 @@
+<!--
+  Heads up! 👋
+
+  Plugins:
+    - @tailwindcss/forms
+-->
+<section class="bg-white rounded-lg shadow-inherit ">
+
+
+<div role="alert" *ngIf="user && user.status==='INVALID' " class="rounded border-s-4 border-red-500 bg-red-50 p-4">
+  <div class="flex items-center gap-2 text-red-800">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      class="h-5 w-5"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+        clip-rule="evenodd"
+      />
+    </svg>
+
+    <strong class="block font-medium"> Something went wrong </strong>
+  </div>
+
+  <p class="mt-2 text-sm text-red-700">Invalid email.</p>
+</div>
+
+
+
+
+
+
+
+    <div class="">
+  
+      <main
+        class="flex items-center  justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
+      >
+        <div class="max-w-xl lg:max-w-3xl">
+  
+  
+          <form [formGroup]="logInForm" (submit)="logInUser()" class="mt-8 grid grid-cols-6 gap-6">
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="FirstName"
+                class="block text-sm font-medium text-gray-700"
+              >
+                First Name
+              </label>
+  
+              <input
+                formControlName="firstName"
+                type="text"
+                id="FirstName"
+                class="mt-1 w-full border-2 p-2 rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+              />
+            </div>
+  
+            <div class="col-span-6 sm:col-span-3">
+              <label
+                for="LastName"
+                class="block text-sm font-medium text-gray-700"
+              >
+                Last Name
+              </label>
+  
+              <input
+              formControlName="lastName"
+                type="text"
+                id="LastName"
+                class="mt-1 w-full rounded-md border-2 p-2 border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+              />
+            </div>
+  
+            <div class="col-span-6">
+              <label for="Email" class="block  text-sm font-medium text-gray-700">
+                Email
+              </label>
+  
+              <input
+              formControlName="email"
+                type="email"
+                id="Email"
+                class="mt-1 w-full rounded border-2 p-2 border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+              />
+
+
+
+            </div>
+  
+
+ 
+            <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
+              <button [disabled]="logInForm.status==='VALID' " type="submit"
+                class="inline-block w-full shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500" >
+                Submit
+              </button>
+  
+              
+            </div>
+          </form>
+        </div>
+      </main>
+
+      <section class=" grid place-content-center pb-10" *ngIf=" logInForm.status === 'INVALID'   ">
+        <div>
+            <p> I tried to make button disable if the the form is invalid but failed. </p>
+        </div>
+      </section>
+
+    </div>
+
+
+
+  </section>
+
+
+
+

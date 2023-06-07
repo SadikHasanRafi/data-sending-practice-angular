@@ -11,6 +11,8 @@ import { MorePracticesComponent } from './more-practices/more-practices.componen
 import { PostMethodComponent } from './post-method/post-method.component';
 import { ViewAllUsersComponent } from './view-all-users/view-all-users.component';
 import { ViewSingleUserComponent } from './view-all-users/view-single-user/view-single-user.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { SimpleFormComponent } from './reactive-form/simple-reactive-form/simple-form/simple-form.component';
 
 const routes: Routes = [
   { path: 'parent', component: ParentComponent },
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'rxjs-country', component: RxJsCountryComponent },
   { path: 'more', component: MorePracticesComponent , children:[
     { path:"add-users", component:PostMethodComponent, pathMatch: 'full' },  
+    { path:"template-driven-from", component:TemplateDrivenFormComponent },  
+    { path:"simple-reactive-form", component:SimpleFormComponent },  
     { path:"view-all-users", component:ViewAllUsersComponent, children:[
       { path:"view-single-user/:id", component:ViewSingleUserComponent },
     ]}

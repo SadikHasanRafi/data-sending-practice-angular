@@ -22,6 +22,10 @@ import { PostDatabaseService } from './post-method/Service/post-database.service
 import { ViewAllUsersComponent } from './view-all-users/view-all-users.component';
 import { ViewSingleUserComponent } from './view-all-users/view-single-user/view-single-user.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { EmptyFieldDirectiveDirective } from './template-driven-form/empty-field-directive/empty-field-directive.directive';
+import { SimpleFormComponent } from './reactive-form/simple-reactive-form/simple-form/simple-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,14 +43,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MorePracticesComponent,
     PostMethodComponent,
     ViewAllUsersComponent,
-    ViewSingleUserComponent
+    ViewSingleUserComponent,
+    TemplateDrivenFormComponent,
+    EmptyFieldDirectiveDirective,
+    SimpleFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [FuelTypeService,PostDatabaseService],
   bootstrap: [AppComponent]

@@ -1,0 +1,170 @@
+<!--
+  Heads up! 👋
+
+  Plugins:
+    - @tailwindcss/forms
+-->
+
+<!-- {{form | json }} -->
+
+
+ <!-- {{templateDrivenForm | json }}  -->
+
+<section class="bg-gray-100 rounded-xl shadow-inner">
+    <div class="mx-auto  max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+      <p class="italic p-2 text-sm">Select the name and any os from the option please <span class="not-italic">🥺</span></p>
+      <div class=" flex flex-row-reverse gap-x-16 gap-y-8 ">
+        <div class="w-[50%] lg:py-12">
+          <p class="max-w-xl text-lg">
+            {{templateForm.value?.message}}
+          </p>
+  
+          <div class="mt-8">
+            <p class="text-2xl font-bold text-pink-600">
+              {{templateForm.value?.phone}}
+            </p>
+  
+            <address class="mt-2 not-italic">
+                {{templateForm.value?.email}}
+            </address>
+            <p *ngIf="templateForm.value?.name && templateForm.value?.os" class="mt-2 not-italic" [appEmptyFieldDirective]="'font-semibold'">
+                {{templateForm.value?.name}} is a {{templateForm.value?.os}} user. <br/>
+                Hover me if you see this 🖱
+            </p>
+          </div>
+        </div>
+  
+        <div class="rounded-lg w-[50%] bg-white p-8 shadow-lg  lg:p-12">
+          
+            <form #templateForm="ngForm" (submit)="handleSubmitData()"  class="space-y-4">
+            <div>
+              <label class="sr-only" for="name">Name</label>
+              <input
+                ngModel
+                class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                placeholder="Name"
+                type="text"
+                name="name"
+              />
+            </div>
+  
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div>
+                <label class="sr-only" for="email">Email</label>
+                <input
+                    ngModel
+                  class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  placeholder="Email address"
+                  type="email"
+                  name="email"
+                />
+              </div>
+  
+              <div>
+                <label class="sr-only" for="phone">Phone</label>
+                <input
+                  ngModel
+                  class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  placeholder="Phone Number"
+                  type="tel"
+                  name="phone"
+                />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
+              <div>
+                <input
+                ngModel
+                  class="peer sr-only"
+                  id="option1"
+                  type="radio"
+                  tabindex="-1"
+                  name="os"
+                  value="Linux"
+                />
+  
+                <label
+                  for="option1"
+                  class="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
+                  tabindex="0"
+                >
+                  <span class="text-sm font-medium"> Linux </span>
+                </label>
+              </div>
+  
+              <div>
+                <input
+                ngModel
+                  class="peer sr-only"
+                  value="Windows"
+                  type="radio"
+                  tabindex="-1"
+                  name="os"
+                  id="option2"
+                />
+  
+                <label
+                  for="option2"
+                  class="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
+                  tabindex="0"
+                >
+                  <span class="text-sm font-medium"> Windows </span>
+                </label>
+              </div>
+  
+              <div>
+                <input
+                ngModel
+                  class="peer sr-only"
+                  value="Mac"
+                  type="radio"
+                  tabindex="-1"
+                  name="os"
+                  id="option3"
+                />
+  
+                <label
+                  for="option3"
+                  class="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
+                  tabindex="0"
+                >
+                  <span class="text-sm font-medium"> Mac </span>
+                </label>
+              </div>
+            </div>
+  
+            <div>
+              <label class="sr-only" for="message">Message</label>
+  
+              <textarea
+                ngModel
+                class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                placeholder="Message"
+                rows="8"
+                name="message"
+              ></textarea>
+            </div>
+  
+                <div class="mt-4  ">
+                    <button
+                    type="submit"
+                    class="group relative inline-block  focus:outline-none focus:ring"
+                >
+                    <span
+                    class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-red-100 transition-transform group-hover:translate-y-0 group-hover:translate-x-0"
+                    ></span>
+                
+                    <span
+                    class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75"
+                    >
+                    Submit
+                    </span>
+                </button>
+                
+                </div>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </section>
