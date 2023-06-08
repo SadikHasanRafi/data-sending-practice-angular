@@ -13,6 +13,9 @@ import { ViewAllUsersComponent } from './view-all-users/view-all-users.component
 import { ViewSingleUserComponent } from './view-all-users/view-single-user/view-single-user.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { SimpleFormComponent } from './reactive-form/simple-reactive-form/simple-form/simple-form.component';
+import { ReactiveFormValidationAgainComponent } from './reactive-form-validation-again/reactive-form-validation-again.component';
+import { NestedFieldReactiveFormComponent } from './nested-field-reactive-form/nested-field-reactive-form.component';
+import { ReactiveFormNestedFieldAgainComponent } from './reactive-form-nested-field-again/reactive-form-nested-field-again.component';
 
 const routes: Routes = [
   { path: 'parent', component: ParentComponent },
@@ -25,11 +28,14 @@ const routes: Routes = [
     { path:"add-users", component:PostMethodComponent, pathMatch: 'full' },  
     { path:"template-driven-from", component:TemplateDrivenFormComponent },  
     { path:"simple-reactive-form", component:SimpleFormComponent },  
+    { path:"nested-form-field-again", component:ReactiveFormNestedFieldAgainComponent },  
+    { path:"reactive-form-validation-2", component:ReactiveFormValidationAgainComponent },  
+    { path:"nested-form-field", component:NestedFieldReactiveFormComponent },  
     { path:"view-all-users", component:ViewAllUsersComponent, children:[
       { path:"view-single-user/:id", component:ViewSingleUserComponent },
     ]}
   ]}
-];
+];  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

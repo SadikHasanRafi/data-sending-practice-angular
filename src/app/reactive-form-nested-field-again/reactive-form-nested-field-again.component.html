@@ -1,0 +1,36 @@
+<p>reactive-form-nested-field-again works!</p>
+<form [formGroup]="myForm">
+    <p>value ➡ {{ myForm | json }}</p>
+
+    <input type="text" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm" placeholder="Enter your email" formControlName="email">
+    <p>Cell phone</p>
+
+    
+    <!-- <div formGroupName="homePhoneNumber">
+        <input type="text" formControlName="area" placeholder="Area">
+        <input type="text" formControlName="prefix" placeholder="Prefix">
+        <input type="text" formControlName="line" placeholder="Line">
+    </div>
+
+    <div formGroupName="cellPhoneNumber">
+        <input type="text" formControlName="area" placeholder="Area">
+        <input type="text" formControlName="prefix" placeholder="Prefix">
+        <input type="text" formControlName="line" placeholder="Line">
+    </div> -->
+
+    <div formArrayName="phones">
+        <div *ngFor="let phone of phoneForms.controls; let i = index" [formGroupName]="i" >
+            <input class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"     type="text" formControlName="area" placeholder="Area">
+            <input class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"     type="text" formControlName="prefix" placeholder="Prefix">
+            <input class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"     type="text" formControlName="line" placeholder="Line">
+
+            <button (click)="deletePhone(i)"
+  class="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-indigo-500">
+  Delete user
+        </button>
+
+        </div>
+    </div>
+    <button (click)="addPhone()" class="inline-block rounded bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75  bg-white px-8 py-3 text-sm font-medium hover:bg-transparent"   >Add Phone</button>
+
+</form>

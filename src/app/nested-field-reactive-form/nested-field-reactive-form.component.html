@@ -1,0 +1,73 @@
+<p class="text-red-600 text-[10px] italic">this page does ot work as expected</p>
+<section>
+  <h1 class="sr-only">Checkout</h1>
+
+  <div class="mx-auto  grid max-w-screen-2xl grid-cols-1 md:grid-cols-2">
+
+
+    <div class="bg-white shadow-inner rounded-md py-12 md:py-24">
+      <div class="mx-auto max-w-lg px-4 lg:px-8">
+        <form [formGroup]="userInfo" class="grid grid-cols-6 gap-4">
+          <div class="col-span-3">
+            <label
+              for="FirstName"
+              class="block text-xs font-medium text-gray-700"
+            >
+              First Name
+            </label>
+
+            <input
+            fromControlName="firstName"
+              type="text"
+              id="FirstName"
+              class="p-2 mt-1 w-full  border-2 border-gray-500 shadow-sm sm:text-sm"
+            />
+          </div>
+
+          <div class="col-span-3">
+            <label
+              for="LastName"
+              class="block text-xs font-medium text-gray-700"
+            >
+              Last Name
+            </label>
+
+            <input
+            fromControlName="lastName"
+              type="text"
+              id="LastName"
+              class="p-2 mt-1 w-full  border-2 border-gray-500 shadow-sm sm:text-sm"
+            />
+          </div>
+
+
+
+          <div formArrayName="phoneNumbers" *ngFor="let number of userInfo.controls['phoneNumbers']?.value; let i = index" class="col-span-6">
+            <!-- <label for="Phone" class="block text-xs font-medium text-gray-700">
+              Phone
+            </label> -->
+            <ng-container
+            [formGroupName]="i" 
+            >
+            <input type="text" formControlName="phoneNumber">
+          </ng-container>
+          </div>
+
+
+
+
+          <div class="col-span-6">
+            <button (click)="handleAddPhoneNumber()"
+              class="inline-block w-full border border-black px-12 py-3 text-sm font-medium text-black hover:bg-black hover:text-white focus:outline-none focus:ring active:bg-balck"
+            >
+              Add phone number
+            </button>
+          </div>
+
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

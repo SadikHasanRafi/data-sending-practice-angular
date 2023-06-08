@@ -26,6 +26,9 @@ import { TemplateDrivenFormComponent } from './template-driven-form/template-dri
 import { EmptyFieldDirectiveDirective } from './template-driven-form/empty-field-directive/empty-field-directive.directive';
 import { SimpleFormComponent } from './reactive-form/simple-reactive-form/simple-form/simple-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormValidationAgainComponent } from './reactive-form-validation-again/reactive-form-validation-again.component';
+import { NestedFieldReactiveFormComponent } from './nested-field-reactive-form/nested-field-reactive-form.component';
+import { ReactiveFormNestedFieldAgainComponent } from './reactive-form-nested-field-again/reactive-form-nested-field-again.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     TemplateDrivenFormComponent,
     EmptyFieldDirectiveDirective,
     SimpleFormComponent,
+    ReactiveFormValidationAgainComponent,
+    NestedFieldReactiveFormComponent,
+    ReactiveFormNestedFieldAgainComponent,
   ],
   imports: [
     BrowserModule,
