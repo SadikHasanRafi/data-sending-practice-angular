@@ -16,6 +16,12 @@ import { SimpleFormComponent } from './reactive-form/simple-reactive-form/simple
 import { ReactiveFormValidationAgainComponent } from './reactive-form-validation-again/reactive-form-validation-again.component';
 import { NestedFieldReactiveFormComponent } from './nested-field-reactive-form/nested-field-reactive-form.component';
 import { ReactiveFormNestedFieldAgainComponent } from './reactive-form-nested-field-again/reactive-form-nested-field-again.component';
+import { DynamicRouteComponent } from './dynamic-route/dynamic-route.component';
+import { CountryDetailsComponent } from './country-details/country-details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PrivateRouteComponent } from './private-route/private-route.component';
+import { LoginComponent } from './login/login.component';
+import { canActivateChild } from './guard/admin.guard';
 
 const routes: Routes = [
   { path: 'parent', component: ParentComponent },
@@ -31,12 +37,18 @@ const routes: Routes = [
     { path:"nested-form-field-again", component:ReactiveFormNestedFieldAgainComponent },  
     { path:"reactive-form-validation-2", component:ReactiveFormValidationAgainComponent },  
     { path:"nested-form-field", component:NestedFieldReactiveFormComponent },  
+    { path:"private-route", component:PrivateRouteComponent },  
+    { path:"login", component:LoginComponent, canActivate:[canActivateChild] },  
+    { path:"dynamic-route", component:DynamicRouteComponent },  
+    { path:"dynamic-route/:name", component:CountryDetailsComponent },  
     { path:"view-all-users", component:ViewAllUsersComponent, children:[
       { path:"view-single-user/:id", component:ViewSingleUserComponent },
     ]}
-  ]}
-];  
+  ]}, 
+   { path: '**', component: PageNotFoundComponent },
 
+];  
+//assalamuakaim ami sadik hasan rafi ekhane frontend devloper er intern hisebe join korchi hafiz vai er under e asi .. apnar sathe introductory sakhat kar er jonno esechi kemon asen ?
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
