@@ -22,6 +22,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PrivateRouteComponent } from './private-route/private-route.component';
 import { LoginComponent } from './login/login.component';
 import { canActivateChild } from './guard/admin.guard';
+import { authGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   { path: 'parent', component: ParentComponent },
@@ -37,8 +38,8 @@ const routes: Routes = [
     { path:"nested-form-field-again", component:ReactiveFormNestedFieldAgainComponent },  
     { path:"reactive-form-validation-2", component:ReactiveFormValidationAgainComponent },  
     { path:"nested-form-field", component:NestedFieldReactiveFormComponent },  
-    { path:"private-route", component:PrivateRouteComponent },  
-    { path:"login", component:LoginComponent, canActivate:[canActivateChild] },  
+    { path:"private-route", component:PrivateRouteComponent , canActivate:[authGuard]  },  
+    { path:"login", component:LoginComponent},  
     { path:"dynamic-route", component:DynamicRouteComponent },  
     { path:"dynamic-route/:name", component:CountryDetailsComponent },  
     { path:"view-all-users", component:ViewAllUsersComponent, children:[
