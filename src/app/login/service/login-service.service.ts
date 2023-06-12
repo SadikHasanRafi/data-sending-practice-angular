@@ -11,9 +11,10 @@ export class LoginServiceService {
 
   get isLoggedIn(){
     const str = localStorage.getItem('token')
-    console.log(str)
+    console.log(typeof(str))
 
-    if (str) {
+    if (str?.includes('sadik')) {
+
       return true
     }else{
       return false

@@ -26,6 +26,7 @@
     placeholder="Enter password"
     class="mt-1 w-full rounded-md border-black shadow-inner hover:shadow-sm p-2 bg-[#f8fdf2]  py-3  sm:text-sm"
   />
+  <p *ngIf="warning" class="text-red-500 text-sm">Your email does not contain 'sadik'</p>
 </div>
     <button
     type="submit"
